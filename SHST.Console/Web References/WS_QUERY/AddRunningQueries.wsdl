@@ -1,0 +1,787 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://sqlmvp.kr" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://sqlmvp.kr" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://sqlmvp.kr">
+      <s:element name="InsertRunningQueries">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bytearr" type="s:base64Binary" />
+            <s:element minOccurs="1" maxOccurs="1" name="iServerNumber" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTimeIn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTimeIn_UTC" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertRunningQueriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertRunningQueriesResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SQLJobAgentFailCheck">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bytearr" type="s:base64Binary" />
+            <s:element minOccurs="1" maxOccurs="1" name="iServerNumber" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTimeIn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTimeIn_UTC" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SQLJobAgentFailCheckResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SQLJobAgentFailCheckResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SQLJobStatusCheck">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bytearr" type="s:base64Binary" />
+            <s:element minOccurs="1" maxOccurs="1" name="iServerNumber" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTimeIn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTimeIn_UTC" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SQLJobStatusCheckResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SQLJobStatusCheckResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SQLLinkedCheck">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bytearr" type="s:base64Binary" />
+            <s:element minOccurs="1" maxOccurs="1" name="iServerNumber" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTimeIn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTimeIn_UTC" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SQLLinkedCheckResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SQLLinkedCheckResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SQLErrorlog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bytearr" type="s:base64Binary" />
+            <s:element minOccurs="1" maxOccurs="1" name="iServerNumber" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTimeIn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTimeIn_UTC" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SQLErrorlogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SQLErrorlogResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SQLTableSize">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bytearr" type="s:base64Binary" />
+            <s:element minOccurs="1" maxOccurs="1" name="iServerNumber" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTimeIn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTimeIn_UTC" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SQLTableSizeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SQLTableSizeResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SQLBlock">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bytearr" type="s:base64Binary" />
+            <s:element minOccurs="1" maxOccurs="1" name="iServerNumber" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTimeIn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTimeIn_UTC" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SQLBlockResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SQLBlockResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SQLObjectCheck">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bytearr" type="s:base64Binary" />
+            <s:element minOccurs="1" maxOccurs="1" name="iServerNumber" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTimeIn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTimeIn_UTC" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SQLObjectCheckResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SQLObjectCheckResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SQLDatabase">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bytearr" type="s:base64Binary" />
+            <s:element minOccurs="1" maxOccurs="1" name="iServerNumber" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTimeIn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTimeIn_UTC" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SQLDatabaseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SQLDatabaseResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SQLIndexDuplication">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bytearr" type="s:base64Binary" />
+            <s:element minOccurs="1" maxOccurs="1" name="iServerNumber" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTimeIn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTimeIn_UTC" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SQLIndexDuplicationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SQLIndexDuplicationResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SQLServerInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bytearr" type="s:base64Binary" />
+            <s:element minOccurs="1" maxOccurs="1" name="iServerNumber" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTimeIn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTimeIn_UTC" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SQLServerInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SQLServerInfoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SQLServiceStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bytearr" type="s:base64Binary" />
+            <s:element minOccurs="1" maxOccurs="1" name="iServerNumber" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTimeIn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTimeIn_UTC" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SQLServiceStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SQLServiceStatusResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SQLConfiguration">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bytearr" type="s:base64Binary" />
+            <s:element minOccurs="1" maxOccurs="1" name="iServerNumber" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTimeIn" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SQLConfigurationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SQLConfigurationResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SQLDataBaseFileSize">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bytearr" type="s:base64Binary" />
+            <s:element minOccurs="1" maxOccurs="1" name="iServerNumber" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTimeIn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTimeIn_UTC" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SQLDataBaseFileSizeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SQLDataBaseFileSizeResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SQLSession">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bytearr" type="s:base64Binary" />
+            <s:element minOccurs="1" maxOccurs="1" name="iServerNumber" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTimeIn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTimeIn_UTC" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SQLSessionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SQLSessionResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SQLIndexFlagment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bytearr" type="s:base64Binary" />
+            <s:element minOccurs="1" maxOccurs="1" name="iServerNumber" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTimeIn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTimeIn_UTC" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SQLIndexFlagmentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SQLIndexFlagmentResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SQLAgentErrorlog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bytearr" type="s:base64Binary" />
+            <s:element minOccurs="1" maxOccurs="1" name="iServerNumber" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTimeIn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTimeIn_UTC" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SQLAgentErrorlogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SQLAgentErrorlogResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="InsertRunningQueriesSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertRunningQueries" />
+  </wsdl:message>
+  <wsdl:message name="InsertRunningQueriesSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertRunningQueriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="SQLJobAgentFailCheckSoapIn">
+    <wsdl:part name="parameters" element="tns:SQLJobAgentFailCheck" />
+  </wsdl:message>
+  <wsdl:message name="SQLJobAgentFailCheckSoapOut">
+    <wsdl:part name="parameters" element="tns:SQLJobAgentFailCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="SQLJobStatusCheckSoapIn">
+    <wsdl:part name="parameters" element="tns:SQLJobStatusCheck" />
+  </wsdl:message>
+  <wsdl:message name="SQLJobStatusCheckSoapOut">
+    <wsdl:part name="parameters" element="tns:SQLJobStatusCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="SQLLinkedCheckSoapIn">
+    <wsdl:part name="parameters" element="tns:SQLLinkedCheck" />
+  </wsdl:message>
+  <wsdl:message name="SQLLinkedCheckSoapOut">
+    <wsdl:part name="parameters" element="tns:SQLLinkedCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="SQLErrorlogSoapIn">
+    <wsdl:part name="parameters" element="tns:SQLErrorlog" />
+  </wsdl:message>
+  <wsdl:message name="SQLErrorlogSoapOut">
+    <wsdl:part name="parameters" element="tns:SQLErrorlogResponse" />
+  </wsdl:message>
+  <wsdl:message name="SQLTableSizeSoapIn">
+    <wsdl:part name="parameters" element="tns:SQLTableSize" />
+  </wsdl:message>
+  <wsdl:message name="SQLTableSizeSoapOut">
+    <wsdl:part name="parameters" element="tns:SQLTableSizeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SQLBlockSoapIn">
+    <wsdl:part name="parameters" element="tns:SQLBlock" />
+  </wsdl:message>
+  <wsdl:message name="SQLBlockSoapOut">
+    <wsdl:part name="parameters" element="tns:SQLBlockResponse" />
+  </wsdl:message>
+  <wsdl:message name="SQLObjectCheckSoapIn">
+    <wsdl:part name="parameters" element="tns:SQLObjectCheck" />
+  </wsdl:message>
+  <wsdl:message name="SQLObjectCheckSoapOut">
+    <wsdl:part name="parameters" element="tns:SQLObjectCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="SQLDatabaseSoapIn">
+    <wsdl:part name="parameters" element="tns:SQLDatabase" />
+  </wsdl:message>
+  <wsdl:message name="SQLDatabaseSoapOut">
+    <wsdl:part name="parameters" element="tns:SQLDatabaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="SQLIndexDuplicationSoapIn">
+    <wsdl:part name="parameters" element="tns:SQLIndexDuplication" />
+  </wsdl:message>
+  <wsdl:message name="SQLIndexDuplicationSoapOut">
+    <wsdl:part name="parameters" element="tns:SQLIndexDuplicationResponse" />
+  </wsdl:message>
+  <wsdl:message name="SQLServerInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:SQLServerInfo" />
+  </wsdl:message>
+  <wsdl:message name="SQLServerInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:SQLServerInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SQLServiceStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:SQLServiceStatus" />
+  </wsdl:message>
+  <wsdl:message name="SQLServiceStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:SQLServiceStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="SQLConfigurationSoapIn">
+    <wsdl:part name="parameters" element="tns:SQLConfiguration" />
+  </wsdl:message>
+  <wsdl:message name="SQLConfigurationSoapOut">
+    <wsdl:part name="parameters" element="tns:SQLConfigurationResponse" />
+  </wsdl:message>
+  <wsdl:message name="SQLDataBaseFileSizeSoapIn">
+    <wsdl:part name="parameters" element="tns:SQLDataBaseFileSize" />
+  </wsdl:message>
+  <wsdl:message name="SQLDataBaseFileSizeSoapOut">
+    <wsdl:part name="parameters" element="tns:SQLDataBaseFileSizeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SQLSessionSoapIn">
+    <wsdl:part name="parameters" element="tns:SQLSession" />
+  </wsdl:message>
+  <wsdl:message name="SQLSessionSoapOut">
+    <wsdl:part name="parameters" element="tns:SQLSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="SQLIndexFlagmentSoapIn">
+    <wsdl:part name="parameters" element="tns:SQLIndexFlagment" />
+  </wsdl:message>
+  <wsdl:message name="SQLIndexFlagmentSoapOut">
+    <wsdl:part name="parameters" element="tns:SQLIndexFlagmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="SQLAgentErrorlogSoapIn">
+    <wsdl:part name="parameters" element="tns:SQLAgentErrorlog" />
+  </wsdl:message>
+  <wsdl:message name="SQLAgentErrorlogSoapOut">
+    <wsdl:part name="parameters" element="tns:SQLAgentErrorlogResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AddRunningQueriesSoap">
+    <wsdl:operation name="InsertRunningQueries">
+      <wsdl:input message="tns:InsertRunningQueriesSoapIn" />
+      <wsdl:output message="tns:InsertRunningQueriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SQLJobAgentFailCheck">
+      <wsdl:input message="tns:SQLJobAgentFailCheckSoapIn" />
+      <wsdl:output message="tns:SQLJobAgentFailCheckSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SQLJobStatusCheck">
+      <wsdl:input message="tns:SQLJobStatusCheckSoapIn" />
+      <wsdl:output message="tns:SQLJobStatusCheckSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SQLLinkedCheck">
+      <wsdl:input message="tns:SQLLinkedCheckSoapIn" />
+      <wsdl:output message="tns:SQLLinkedCheckSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SQLErrorlog">
+      <wsdl:input message="tns:SQLErrorlogSoapIn" />
+      <wsdl:output message="tns:SQLErrorlogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SQLTableSize">
+      <wsdl:input message="tns:SQLTableSizeSoapIn" />
+      <wsdl:output message="tns:SQLTableSizeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SQLBlock">
+      <wsdl:input message="tns:SQLBlockSoapIn" />
+      <wsdl:output message="tns:SQLBlockSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SQLObjectCheck">
+      <wsdl:input message="tns:SQLObjectCheckSoapIn" />
+      <wsdl:output message="tns:SQLObjectCheckSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SQLDatabase">
+      <wsdl:input message="tns:SQLDatabaseSoapIn" />
+      <wsdl:output message="tns:SQLDatabaseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SQLIndexDuplication">
+      <wsdl:input message="tns:SQLIndexDuplicationSoapIn" />
+      <wsdl:output message="tns:SQLIndexDuplicationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SQLServerInfo">
+      <wsdl:input message="tns:SQLServerInfoSoapIn" />
+      <wsdl:output message="tns:SQLServerInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SQLServiceStatus">
+      <wsdl:input message="tns:SQLServiceStatusSoapIn" />
+      <wsdl:output message="tns:SQLServiceStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SQLConfiguration">
+      <wsdl:input message="tns:SQLConfigurationSoapIn" />
+      <wsdl:output message="tns:SQLConfigurationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SQLDataBaseFileSize">
+      <wsdl:input message="tns:SQLDataBaseFileSizeSoapIn" />
+      <wsdl:output message="tns:SQLDataBaseFileSizeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SQLSession">
+      <wsdl:input message="tns:SQLSessionSoapIn" />
+      <wsdl:output message="tns:SQLSessionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SQLIndexFlagment">
+      <wsdl:input message="tns:SQLIndexFlagmentSoapIn" />
+      <wsdl:output message="tns:SQLIndexFlagmentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SQLAgentErrorlog">
+      <wsdl:input message="tns:SQLAgentErrorlogSoapIn" />
+      <wsdl:output message="tns:SQLAgentErrorlogSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AddRunningQueriesSoap" type="tns:AddRunningQueriesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertRunningQueries">
+      <soap:operation soapAction="http://sqlmvp.kr/InsertRunningQueries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SQLJobAgentFailCheck">
+      <soap:operation soapAction="http://sqlmvp.kr/SQLJobAgentFailCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SQLJobStatusCheck">
+      <soap:operation soapAction="http://sqlmvp.kr/SQLJobStatusCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SQLLinkedCheck">
+      <soap:operation soapAction="http://sqlmvp.kr/SQLLinkedCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SQLErrorlog">
+      <soap:operation soapAction="http://sqlmvp.kr/SQLErrorlog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SQLTableSize">
+      <soap:operation soapAction="http://sqlmvp.kr/SQLTableSize" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SQLBlock">
+      <soap:operation soapAction="http://sqlmvp.kr/SQLBlock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SQLObjectCheck">
+      <soap:operation soapAction="http://sqlmvp.kr/SQLObjectCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SQLDatabase">
+      <soap:operation soapAction="http://sqlmvp.kr/SQLDatabase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SQLIndexDuplication">
+      <soap:operation soapAction="http://sqlmvp.kr/SQLIndexDuplication" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SQLServerInfo">
+      <soap:operation soapAction="http://sqlmvp.kr/SQLServerInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SQLServiceStatus">
+      <soap:operation soapAction="http://sqlmvp.kr/SQLServiceStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SQLConfiguration">
+      <soap:operation soapAction="http://sqlmvp.kr/SQLConfiguration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SQLDataBaseFileSize">
+      <soap:operation soapAction="http://sqlmvp.kr/SQLDataBaseFileSize" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SQLSession">
+      <soap:operation soapAction="http://sqlmvp.kr/SQLSession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SQLIndexFlagment">
+      <soap:operation soapAction="http://sqlmvp.kr/SQLIndexFlagment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SQLAgentErrorlog">
+      <soap:operation soapAction="http://sqlmvp.kr/SQLAgentErrorlog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AddRunningQueriesSoap12" type="tns:AddRunningQueriesSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertRunningQueries">
+      <soap12:operation soapAction="http://sqlmvp.kr/InsertRunningQueries" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SQLJobAgentFailCheck">
+      <soap12:operation soapAction="http://sqlmvp.kr/SQLJobAgentFailCheck" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SQLJobStatusCheck">
+      <soap12:operation soapAction="http://sqlmvp.kr/SQLJobStatusCheck" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SQLLinkedCheck">
+      <soap12:operation soapAction="http://sqlmvp.kr/SQLLinkedCheck" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SQLErrorlog">
+      <soap12:operation soapAction="http://sqlmvp.kr/SQLErrorlog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SQLTableSize">
+      <soap12:operation soapAction="http://sqlmvp.kr/SQLTableSize" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SQLBlock">
+      <soap12:operation soapAction="http://sqlmvp.kr/SQLBlock" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SQLObjectCheck">
+      <soap12:operation soapAction="http://sqlmvp.kr/SQLObjectCheck" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SQLDatabase">
+      <soap12:operation soapAction="http://sqlmvp.kr/SQLDatabase" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SQLIndexDuplication">
+      <soap12:operation soapAction="http://sqlmvp.kr/SQLIndexDuplication" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SQLServerInfo">
+      <soap12:operation soapAction="http://sqlmvp.kr/SQLServerInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SQLServiceStatus">
+      <soap12:operation soapAction="http://sqlmvp.kr/SQLServiceStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SQLConfiguration">
+      <soap12:operation soapAction="http://sqlmvp.kr/SQLConfiguration" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SQLDataBaseFileSize">
+      <soap12:operation soapAction="http://sqlmvp.kr/SQLDataBaseFileSize" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SQLSession">
+      <soap12:operation soapAction="http://sqlmvp.kr/SQLSession" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SQLIndexFlagment">
+      <soap12:operation soapAction="http://sqlmvp.kr/SQLIndexFlagment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SQLAgentErrorlog">
+      <soap12:operation soapAction="http://sqlmvp.kr/SQLAgentErrorlog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AddRunningQueries">
+    <wsdl:port name="AddRunningQueriesSoap" binding="tns:AddRunningQueriesSoap">
+      <soap:address location="http://localhost:3584/AddRunningQueries.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AddRunningQueriesSoap12" binding="tns:AddRunningQueriesSoap12">
+      <soap12:address location="http://localhost:3584/AddRunningQueries.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

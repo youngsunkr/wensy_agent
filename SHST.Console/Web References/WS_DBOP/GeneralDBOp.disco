@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://localhost:3584/GeneralDBOp.asmx?wsdl" docRef="http://localhost:3584/GeneralDBOp.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://localhost:3584/GeneralDBOp.asmx" xmlns:q1="http://sqlmvp.kr" binding="q1:GeneralDBOpSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://localhost:3584/GeneralDBOp.asmx" xmlns:q2="http://sqlmvp.kr" binding="q2:GeneralDBOpSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

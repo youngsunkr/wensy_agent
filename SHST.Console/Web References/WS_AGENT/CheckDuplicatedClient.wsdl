@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="IsValidClient">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strProductKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strMachineKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strIP" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsValidClientResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsValidClientResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteRegistedAgent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strProductKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strMachineKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strIP" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteRegistedAgentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteRegistedAgentResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="IsValidClientSoapIn">
+    <wsdl:part name="parameters" element="tns:IsValidClient" />
+  </wsdl:message>
+  <wsdl:message name="IsValidClientSoapOut">
+    <wsdl:part name="parameters" element="tns:IsValidClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteRegistedAgentSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteRegistedAgent" />
+  </wsdl:message>
+  <wsdl:message name="DeleteRegistedAgentSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteRegistedAgentResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CheckDuplicatedClientSoap">
+    <wsdl:operation name="IsValidClient">
+      <wsdl:input message="tns:IsValidClientSoapIn" />
+      <wsdl:output message="tns:IsValidClientSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRegistedAgent">
+      <wsdl:input message="tns:DeleteRegistedAgentSoapIn" />
+      <wsdl:output message="tns:DeleteRegistedAgentSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CheckDuplicatedClientSoap" type="tns:CheckDuplicatedClientSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="IsValidClient">
+      <soap:operation soapAction="http://tempuri.org/IsValidClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRegistedAgent">
+      <soap:operation soapAction="http://tempuri.org/DeleteRegistedAgent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CheckDuplicatedClientSoap12" type="tns:CheckDuplicatedClientSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="IsValidClient">
+      <soap12:operation soapAction="http://tempuri.org/IsValidClient" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRegistedAgent">
+      <soap12:operation soapAction="http://tempuri.org/DeleteRegistedAgent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CheckDuplicatedClient">
+    <wsdl:port name="CheckDuplicatedClientSoap" binding="tns:CheckDuplicatedClientSoap">
+      <soap:address location="http://juliabook.iptime.org:802/CheckDuplicatedClient.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CheckDuplicatedClientSoap12" binding="tns:CheckDuplicatedClientSoap12">
+      <soap12:address location="http://juliabook.iptime.org:802/CheckDuplicatedClient.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

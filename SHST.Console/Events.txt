@@ -1,0 +1,330 @@
+﻿
+
+Warning, 1200, 
+The type of this server that you configured in the SHST configuration file, is IIS, but IIS is not installed on this server.
+SHST Agent is running in 'Windows' server mode, and it does not collect IIS related data.
+
+Error, 1101
+Exception Error Message, ReadPerformanceCounters(). DB
+
+Error, 1102
+Exception Error Message, Reading Alert Rules
+
+Error, 1103
+Exception Error Message, Inserting Alerts
+
+Error, 1104
+Host Status Update Failure
+
+Error, 1105
+Host can't be found (Start fail!)
+
+1106
+Registration Failure (Insert host into tbHoststatus)
+
+1107
+fail to connect db first time(retry > 5)
+
+1108
+insert perf values failure
+
+1109
+fail to get running request
+
+1110
+fail to get NI bandwidth
+
+1111
+buiding inital IIS log failure
+
+1112
+building temp log failure
+
+1113
+delete exising log file
+
+1114
+insert iislog to db fail
+
+1115
+update status of IISlog fail
+
+1116
+insert requests houly fail
+
+1117
+building perf count list fail
+
+1118
+building perf count list fail
+
+1119
+internal datatable failure (workerprocess)
+
+
+1120 
+internal datatable failure (dtSavedPValues)
+
+1121
+Process memory chk error
+
+1122
+logparser doesn't exist
+
+1115
+Generating temperary file from IIS log has been failed
+
+1116
+get list wp
+
+
+1118, 1119
+HC URL - alert insert failed.
+
+1120
+missing logging fields
+
+1121
+failed to read HC Rules, Alert description.
+
+1122
+update host status fail from WebHC
+
+1123
+failed to get list of process in perfmon
+
+1124
+failed checking last inserted time in IIS log table
+
+1125
+InsertAlertsTo DB Fail.
+
+1126
+chkprocmemroy error(alert)
+
+1132
+SHST Agent failed to monitor local SQL Database. 
+
+1128
+SHST Agent failed to get queries to run. 
+
+1129
+failed to open conn to insert SQL result
+
+1130
+failed to insert SQL result
+
+1131
+SHST failed to run a monitoring query in this local database. - " + e.Message, "W", 1131);
+
+1132
+SHST SQL Query DB connection closing fail
+
+1133
+System can't read perf counter(corrupted).
+
+1134
+SHST Agent can't connect SHST Database (can't continue agent)
+
+1135
+SHST Agent can not access SHST database, or read performance counters. Please check its DB connection string in SHST Application Configuration File, or Run performon to check if performance categories are displayed correctly.
+
+1136
+SHST failed to reset all DB connections.
+
+1137
+failed to load XML config file.
+
+1138
+The ServerType in SHST.AGENT.Settings.xml is invalid, SHST will be running under Windows type. Your input - " + strServerType
+
+1139
+SHST Agent failed to save settings to " + strPath + ex.Message
+
+1302
+SHST Agent failed to verify the product key in its configuration file. SHST is running under Trial Mode.
+
+1140, 1141
+This trial license of SHST has been expired.
+
+1142
+SHST failed to validate the license of product.
+
+1143
+SHST reached the maximum licensed servers to monitor. #Servers/#Licensed - " + strMessage, EventLogEntryType.Warning, 1143)
+
+1144
+Unexpected exception happended during handling perforamance counter values. - " + ex.Message
+
+1145
+Unexpected exception happended during checking SHST rules. - " + ex.Message
+
+1146
+Failed to read Perf Instance List
+
+1147
+get site list
+
+1148 
+Fail to chk BizTalk custom rules - exception
+
+1149
+missing encrypted key file.
+
+
+1150
+First run of SQL Counter "Unexpected exception happended during handling perforamance counter values. -
+
+1151
+Reading SQL Counter "Unexpected exception happended during handling perforamance counter values. -
+
+1152 
+Fail to chk SQL custom rules - exception
+
+1153
+WSPEvent.WriteEvent("SHST failed to collect the information of running queries." + ex.Message, "E", 1153);
+
+1154
+ "SHST Agent failed to monitor local SQL Database. " + ex.Message;
+
+ 1155
+ WSPEvent.WriteEvent("SHST failed to alert current local SQL server status. - " + ex.Message, "E", 1155);
+
+ 1156
+ WSPEvent.WriteEvent("SHST failed to insert query status into SHST Database" + ex.Message, "E", 1156);
+
+  1157
+ WSPEvent.WriteEvent("SHST failed to insert query status into SHST Database" + ex.Message, "E", 1156);
+
+ 1158
+ WSPEvent.WriteEvent("SHST can't find the information to collect performance on this system. - " + ex.Message, "W", 1158);
+
+ 1159
+ missing counter in 2nd SQL Perf Thread
+
+ 1160
+  WSPEvent.WriteEvent("SHST failed to initialize SQL performance counters.- " + ex.Message, "W", 1160);
+
+  1161
+
+  WSPEvent.WriteEvent("SHST Agent failed to analyze IIS Log.", "W", 1161);
+
+  
+  1163
+  WSPEvent.WriteEvent("Invalid Performance Objects found - " + dr1["PObjectName"].ToString(), "E", 1162);
+
+  1164
+  WSPEvent.WriteEvent("It failed to get reference values to merge." + ex.Message, "W", 1164);
+
+
+  1165
+  WSPEvent.WriteEvent("Inserting indexed values for dashboard has been failed. - " + ex.Message, "E", 1165);
+
+  1166
+  UpdateHostInformation fail
+
+  1167
+  UpdateHostStatus
+
+
+  1168
+  WSPEvent.WriteEvent("Service Point Agent reached its maximum memory size. This service process will be shutdowned, and resumed", "W", 1168);
+
+  1169
+  WSPEvent.WriteEvent("Service Point Agent has failed to access the database to validate this server. - " + e.Message, "E", 1169);
+
+  1170
+
+WSPEvent.WriteEvent("Service Point Agent has failed to update initial this server information.", "E", 1170);
+
+1171
+WSPEvent.WriteEvent("Service Point Agent failed to read rules for alerts - " + e.Message, "E", 1171);
+
+1172
+WSPEvent.WriteEvent("Service Point Agent failed to read list of performance counters from WSP DB - " + e.Message, "E", 1172);
+
+1173
+WSPEvent.WriteEvent("WSP has failed to insert list of running applications of WEB. - " + ex.Message, "E", 1173);
+
+1174
+WSPEvent.WriteEvent("Service Point Agent failed to read list of BizTalk processes." + ex.Message, "E", 1174);
+
+1175
+WSPEvent.WriteEvent("Inserting alerts of Web has been failed." + ex.Message, "E", 1175);
+
+1176
+WSPEvent.WriteEvent("Inserting Performance vaules has been failed. - " + ex.Message, "E", 1106);
+
+1177
+WSPEvent.WriteEvent("Service Point Agent just alerted the failure of running SQL Heat Beat Query. - " + ex.Message, "W", 1177);
+
+1178
+WSPEvent.WriteEvent("WSP failed to collect the information of running queries. - " + ex.Message, "W", 1178);
+
+1179
+WSPEvent.WriteEvent("WSP failed to collect the information of running queries. - " + ex.Message, "W", 1179);
+
+
+1180
+WSPEvent.WriteEvent("Checking the current anaysis rule has been failed. - " + ex.Message, "E", 1180);
+
+1181
+WSPEvent.WriteEvent("Internal Error - Analzing IIS performance. - " + ex.Message, "E", 1181);
+
+1182
+WSPEvent.WriteEvent("Internal Error - Analyzing IIS Performance failed. - " + ex.Message, "W", 1182);
+
+1183
+WSPEvent.WriteEvent("Checking SQL quries has failed. - " + ex.Message, "E", 1183);
+
+1184
+WSPEvent.WriteEvent("License for Service Point Agent has been expired, or failed to validate the product key.", "E", 1184);
+
+1185
+WSPEvent.WriteEvent("Handling IIS Alerts has failed. - " + ex.Message, "E", 1185);
+
+1186
+WSPEvent.WriteEvent("Checking application pool status has failed. - " + ex.Message, "E", 1186);
+
+1187
+WSPEvent.WriteEvent("Anyalizing SQL Monitoring queries has failed in this local database. - " + ex.Message, "W", 1187);
+
+1188
+WSPEvent.WriteEvent("Reading a memory size of WSP Agent Process has been missed. - " + ex.Message, "I", 1188);
+
+1200
+WSPEvent.WriteEvent("This agent can't continue running service. It's required to add or extend service hours for this server.", "E", 1200);
+
+1301
+WSPEvent.WriteEvent("URL Health Check Monitoring fuction error - " + ex.Message, "W", 1301);
+
+1302
+WSPEvent.WriteEvent("Service Point Agent failed to read list of query definitions from DB - " + e.Message, "W", 1302);
+
+//////////////////////////////////////////////////////////////////////////////////
+2000
+"SHST does not have valid licence key. SHST Agent Service is being stopped.", "W", 2000);
+
+///////////////////////////////////////////////////////////////////////////////////
+
+information
+1001 started perf data collection ok.
+
+1003 started HC URL
+
+1004 process memory chk -> no web app (null datatable)
+
+1005 SHST can't find the information of IIS, or BizTalk related Processes
+
+1006 SHST SQL Checking starts
+
+1007, SHST SQL HC starts.(Heatbeat, running queries)
+
+1300, 1301
+SHST Agent doesn't have a valid product key, SHST is running under Trial Mode.
+
+1008
+WSPEvent.WriteEvent(ex.Message + " : " + strPObjectName + " : " + dr["PCounterName"].ToString(), "I", 1119);
+
+1162
+WSPEvent.WriteEvent("Invalid Performance Objects found - " + dr1["PObjectName"].ToString(), "I", 1162);

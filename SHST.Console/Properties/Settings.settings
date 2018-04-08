@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="WSP.Console.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="WSP_Console_WS_DBOP_GeneralDBOp" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:3584/GeneralDBOp.asmx</Value>
+    </Setting>
+    <Setting Name="WSP_Console_WS_QUERY_AddRunningQueries" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:3584/AddRunningQueries.asmx</Value>
+    </Setting>
+    <Setting Name="WSP_Console_WS_PERFINSERT_PerfValueInsert" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:3584/PerfValueInsert.asmx</Value>
+    </Setting>
+    <Setting Name="WSP_Console_WS_ALERTS_AlertsAdd" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:3584/AlertsAdd.asmx</Value>
+    </Setting>
+    <Setting Name="WSP_Console_WS_AGENTINITIAL_AgentInitial" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:3584/AgentInitial.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

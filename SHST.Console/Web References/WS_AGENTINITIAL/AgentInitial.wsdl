@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://sqlmvp.kr" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://sqlmvp.kr" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://sqlmvp.kr">
+      <s:element name="UpdateHoststatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CurrentStatus" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="iServerNumber" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="TimeIn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TimeIn_UTC" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateHoststatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateHoststatusResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateHoststatus_Version">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HostName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CurrentStatus" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RAMSize" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WinVer" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Processors" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IPAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AgentVer" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="iServerNumber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateHoststatus_VersionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateHoststatus_VersionResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgentLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProductKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgentLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AgentLoginResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlertRuleList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ServerNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlertRuleListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AlertRuleListResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PCIDList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ServerNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PCIDListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PCIDListResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PCIDInstanceList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ServerNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PCIDInstanceListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PCIDInstanceListResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryDefineList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ServerNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryDefineListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryDefineListResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="UpdateHoststatusSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateHoststatus" />
+  </wsdl:message>
+  <wsdl:message name="UpdateHoststatusSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateHoststatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateHoststatus_VersionSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateHoststatus_Version" />
+  </wsdl:message>
+  <wsdl:message name="UpdateHoststatus_VersionSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateHoststatus_VersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="AgentLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:AgentLogin" />
+  </wsdl:message>
+  <wsdl:message name="AgentLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:AgentLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="AlertRuleListSoapIn">
+    <wsdl:part name="parameters" element="tns:AlertRuleList" />
+  </wsdl:message>
+  <wsdl:message name="AlertRuleListSoapOut">
+    <wsdl:part name="parameters" element="tns:AlertRuleListResponse" />
+  </wsdl:message>
+  <wsdl:message name="PCIDListSoapIn">
+    <wsdl:part name="parameters" element="tns:PCIDList" />
+  </wsdl:message>
+  <wsdl:message name="PCIDListSoapOut">
+    <wsdl:part name="parameters" element="tns:PCIDListResponse" />
+  </wsdl:message>
+  <wsdl:message name="PCIDInstanceListSoapIn">
+    <wsdl:part name="parameters" element="tns:PCIDInstanceList" />
+  </wsdl:message>
+  <wsdl:message name="PCIDInstanceListSoapOut">
+    <wsdl:part name="parameters" element="tns:PCIDInstanceListResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryDefineListSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryDefineList" />
+  </wsdl:message>
+  <wsdl:message name="QueryDefineListSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryDefineListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AgentInitialSoap">
+    <wsdl:operation name="UpdateHoststatus">
+      <wsdl:input message="tns:UpdateHoststatusSoapIn" />
+      <wsdl:output message="tns:UpdateHoststatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHoststatus_Version">
+      <wsdl:input message="tns:UpdateHoststatus_VersionSoapIn" />
+      <wsdl:output message="tns:UpdateHoststatus_VersionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgentLogin">
+      <wsdl:input message="tns:AgentLoginSoapIn" />
+      <wsdl:output message="tns:AgentLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AlertRuleList">
+      <wsdl:input message="tns:AlertRuleListSoapIn" />
+      <wsdl:output message="tns:AlertRuleListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PCIDList">
+      <wsdl:input message="tns:PCIDListSoapIn" />
+      <wsdl:output message="tns:PCIDListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PCIDInstanceList">
+      <wsdl:input message="tns:PCIDInstanceListSoapIn" />
+      <wsdl:output message="tns:PCIDInstanceListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryDefineList">
+      <wsdl:input message="tns:QueryDefineListSoapIn" />
+      <wsdl:output message="tns:QueryDefineListSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AgentInitialSoap" type="tns:AgentInitialSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UpdateHoststatus">
+      <soap:operation soapAction="http://sqlmvp.kr/UpdateHoststatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHoststatus_Version">
+      <soap:operation soapAction="http://sqlmvp.kr/UpdateHoststatus_Version" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgentLogin">
+      <soap:operation soapAction="http://sqlmvp.kr/AgentLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlertRuleList">
+      <soap:operation soapAction="http://sqlmvp.kr/AlertRuleList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PCIDList">
+      <soap:operation soapAction="http://sqlmvp.kr/PCIDList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PCIDInstanceList">
+      <soap:operation soapAction="http://sqlmvp.kr/PCIDInstanceList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryDefineList">
+      <soap:operation soapAction="http://sqlmvp.kr/QueryDefineList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AgentInitialSoap12" type="tns:AgentInitialSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UpdateHoststatus">
+      <soap12:operation soapAction="http://sqlmvp.kr/UpdateHoststatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHoststatus_Version">
+      <soap12:operation soapAction="http://sqlmvp.kr/UpdateHoststatus_Version" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgentLogin">
+      <soap12:operation soapAction="http://sqlmvp.kr/AgentLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlertRuleList">
+      <soap12:operation soapAction="http://sqlmvp.kr/AlertRuleList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PCIDList">
+      <soap12:operation soapAction="http://sqlmvp.kr/PCIDList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PCIDInstanceList">
+      <soap12:operation soapAction="http://sqlmvp.kr/PCIDInstanceList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryDefineList">
+      <soap12:operation soapAction="http://sqlmvp.kr/QueryDefineList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AgentInitial">
+    <wsdl:port name="AgentInitialSoap" binding="tns:AgentInitialSoap">
+      <soap:address location="http://localhost:3584/AgentInitial.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AgentInitialSoap12" binding="tns:AgentInitialSoap12">
+      <soap12:address location="http://localhost:3584/AgentInitial.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

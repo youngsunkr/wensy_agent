@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServicePoint version="2">
+  <AGENT>
+   <SERVER_KEY>PGGU7XVSSYGUUWKH</SERVER_KEY>
+   <WS_URL>http://localhost:3584</WS_URL>
+  </AGENT>
+ 
+  <SQL>
+    <ServerName>localhost</ServerName>
+    <!-- Windows: Don't need SQL Account, SQL : Use the SQL Account-->
+    <Authentication>Windows</Authentication>
+    <UserName>sa</UserName>
+    <Password>Passw0rd!</Password>
+    <LocalDB_EncrtypedPassword>FALSE</LocalDB_EncrtypedPassword>
+    <!--LocalDB_minQueryInterval is to set minimum interval to run monitoring queries for local DB. -->
+    <!--The default value is 2 seconds, and any value less than 3 seconds will be ignored.-->
+    <LocalDB_minQueryInterval>2</LocalDB_minQueryInterval>
+    <EnableCollectingRunningQueries>TRUE</EnableCollectingRunningQueries>
+  </SQL>
+</ServicePoint>

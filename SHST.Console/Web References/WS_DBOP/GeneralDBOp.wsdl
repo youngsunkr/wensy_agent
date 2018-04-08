@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://sqlmvp.kr" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://sqlmvp.kr" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://sqlmvp.kr">
+      <s:element name="SelectSPVaules">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strSPName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="btParams" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectSPVaulesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectSPVaulesResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertSPValues">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strSPName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="btParams" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="btValues" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertSPValuesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertSPValuesResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSPValues">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strSPName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="btParams" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSPValuesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateSPValuesResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TempTextOp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strText" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="iServerNumber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TempTextOpResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TempTextOpResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CopyTable">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iServerNumber" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strDest" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="btValues" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CopyTableResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CopyTableResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SQLMonitoringDataInsert">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iServerNumber" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strDest" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="btValues" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTimeIn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strColsToInsert" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SQLMonitoringDataInsertResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SQLMonitoringDataInsertResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IISLogInsert">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="btValues" type="s:base64Binary" />
+            <s:element minOccurs="1" maxOccurs="1" name="iServerNumber" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTimeIn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTimeIn_UTC" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IISLogInsertResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IISLogInsertResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ServiceStatusInsert">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="btValues" type="s:base64Binary" />
+            <s:element minOccurs="1" maxOccurs="1" name="iServerNumber" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTimeIn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTimeIn_UTC" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ServiceStatusInsertResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ServiceStatusInsertResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RequestStatusInsert">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="btValues" type="s:base64Binary" />
+            <s:element minOccurs="1" maxOccurs="1" name="iServerNumber" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTimeIn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTimeIn_UTC" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RequestStatusInsertResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RequestStatusInsertResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ApptraceInsert">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="btValues" type="s:base64Binary" />
+            <s:element minOccurs="1" maxOccurs="1" name="iServerNumber" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTimeIn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTimeIn_UTC" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ApptraceInsertResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ApptraceInsertResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertQueryResultUsingSP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iServerNumber" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSPName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="btValues" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTimeIn" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertQueryResultUsingSPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertQueryResultUsingSPResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SelectSPVaulesSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectSPVaules" />
+  </wsdl:message>
+  <wsdl:message name="SelectSPVaulesSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectSPVaulesResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertSPValuesSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertSPValues" />
+  </wsdl:message>
+  <wsdl:message name="InsertSPValuesSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertSPValuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSPValuesSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateSPValues" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSPValuesSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateSPValuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="TempTextOpSoapIn">
+    <wsdl:part name="parameters" element="tns:TempTextOp" />
+  </wsdl:message>
+  <wsdl:message name="TempTextOpSoapOut">
+    <wsdl:part name="parameters" element="tns:TempTextOpResponse" />
+  </wsdl:message>
+  <wsdl:message name="CopyTableSoapIn">
+    <wsdl:part name="parameters" element="tns:CopyTable" />
+  </wsdl:message>
+  <wsdl:message name="CopyTableSoapOut">
+    <wsdl:part name="parameters" element="tns:CopyTableResponse" />
+  </wsdl:message>
+  <wsdl:message name="SQLMonitoringDataInsertSoapIn">
+    <wsdl:part name="parameters" element="tns:SQLMonitoringDataInsert" />
+  </wsdl:message>
+  <wsdl:message name="SQLMonitoringDataInsertSoapOut">
+    <wsdl:part name="parameters" element="tns:SQLMonitoringDataInsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="IISLogInsertSoapIn">
+    <wsdl:part name="parameters" element="tns:IISLogInsert" />
+  </wsdl:message>
+  <wsdl:message name="IISLogInsertSoapOut">
+    <wsdl:part name="parameters" element="tns:IISLogInsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServiceStatusInsertSoapIn">
+    <wsdl:part name="parameters" element="tns:ServiceStatusInsert" />
+  </wsdl:message>
+  <wsdl:message name="ServiceStatusInsertSoapOut">
+    <wsdl:part name="parameters" element="tns:ServiceStatusInsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="RequestStatusInsertSoapIn">
+    <wsdl:part name="parameters" element="tns:RequestStatusInsert" />
+  </wsdl:message>
+  <wsdl:message name="RequestStatusInsertSoapOut">
+    <wsdl:part name="parameters" element="tns:RequestStatusInsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApptraceInsertSoapIn">
+    <wsdl:part name="parameters" element="tns:ApptraceInsert" />
+  </wsdl:message>
+  <wsdl:message name="ApptraceInsertSoapOut">
+    <wsdl:part name="parameters" element="tns:ApptraceInsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertQueryResultUsingSPSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertQueryResultUsingSP" />
+  </wsdl:message>
+  <wsdl:message name="InsertQueryResultUsingSPSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertQueryResultUsingSPResponse" />
+  </wsdl:message>
+  <wsdl:portType name="GeneralDBOpSoap">
+    <wsdl:operation name="SelectSPVaules">
+      <wsdl:input message="tns:SelectSPVaulesSoapIn" />
+      <wsdl:output message="tns:SelectSPVaulesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertSPValues">
+      <wsdl:input message="tns:InsertSPValuesSoapIn" />
+      <wsdl:output message="tns:InsertSPValuesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSPValues">
+      <wsdl:input message="tns:UpdateSPValuesSoapIn" />
+      <wsdl:output message="tns:UpdateSPValuesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TempTextOp">
+      <wsdl:input message="tns:TempTextOpSoapIn" />
+      <wsdl:output message="tns:TempTextOpSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CopyTable">
+      <wsdl:input message="tns:CopyTableSoapIn" />
+      <wsdl:output message="tns:CopyTableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SQLMonitoringDataInsert">
+      <wsdl:input message="tns:SQLMonitoringDataInsertSoapIn" />
+      <wsdl:output message="tns:SQLMonitoringDataInsertSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IISLogInsert">
+      <wsdl:input message="tns:IISLogInsertSoapIn" />
+      <wsdl:output message="tns:IISLogInsertSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ServiceStatusInsert">
+      <wsdl:input message="tns:ServiceStatusInsertSoapIn" />
+      <wsdl:output message="tns:ServiceStatusInsertSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RequestStatusInsert">
+      <wsdl:input message="tns:RequestStatusInsertSoapIn" />
+      <wsdl:output message="tns:RequestStatusInsertSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ApptraceInsert">
+      <wsdl:input message="tns:ApptraceInsertSoapIn" />
+      <wsdl:output message="tns:ApptraceInsertSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertQueryResultUsingSP">
+      <wsdl:input message="tns:InsertQueryResultUsingSPSoapIn" />
+      <wsdl:output message="tns:InsertQueryResultUsingSPSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GeneralDBOpSoap" type="tns:GeneralDBOpSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SelectSPVaules">
+      <soap:operation soapAction="http://sqlmvp.kr/SelectSPVaules" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertSPValues">
+      <soap:operation soapAction="http://sqlmvp.kr/InsertSPValues" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSPValues">
+      <soap:operation soapAction="http://sqlmvp.kr/UpdateSPValues" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TempTextOp">
+      <soap:operation soapAction="http://sqlmvp.kr/TempTextOp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CopyTable">
+      <soap:operation soapAction="http://sqlmvp.kr/CopyTable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SQLMonitoringDataInsert">
+      <soap:operation soapAction="http://sqlmvp.kr/SQLMonitoringDataInsert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IISLogInsert">
+      <soap:operation soapAction="http://sqlmvp.kr/IISLogInsert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ServiceStatusInsert">
+      <soap:operation soapAction="http://sqlmvp.kr/ServiceStatusInsert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RequestStatusInsert">
+      <soap:operation soapAction="http://sqlmvp.kr/RequestStatusInsert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ApptraceInsert">
+      <soap:operation soapAction="http://sqlmvp.kr/ApptraceInsert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertQueryResultUsingSP">
+      <soap:operation soapAction="http://sqlmvp.kr/InsertQueryResultUsingSP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="GeneralDBOpSoap12" type="tns:GeneralDBOpSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SelectSPVaules">
+      <soap12:operation soapAction="http://sqlmvp.kr/SelectSPVaules" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertSPValues">
+      <soap12:operation soapAction="http://sqlmvp.kr/InsertSPValues" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSPValues">
+      <soap12:operation soapAction="http://sqlmvp.kr/UpdateSPValues" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TempTextOp">
+      <soap12:operation soapAction="http://sqlmvp.kr/TempTextOp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CopyTable">
+      <soap12:operation soapAction="http://sqlmvp.kr/CopyTable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SQLMonitoringDataInsert">
+      <soap12:operation soapAction="http://sqlmvp.kr/SQLMonitoringDataInsert" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IISLogInsert">
+      <soap12:operation soapAction="http://sqlmvp.kr/IISLogInsert" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ServiceStatusInsert">
+      <soap12:operation soapAction="http://sqlmvp.kr/ServiceStatusInsert" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RequestStatusInsert">
+      <soap12:operation soapAction="http://sqlmvp.kr/RequestStatusInsert" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ApptraceInsert">
+      <soap12:operation soapAction="http://sqlmvp.kr/ApptraceInsert" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertQueryResultUsingSP">
+      <soap12:operation soapAction="http://sqlmvp.kr/InsertQueryResultUsingSP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GeneralDBOp">
+    <wsdl:port name="GeneralDBOpSoap" binding="tns:GeneralDBOpSoap">
+      <soap:address location="http://localhost:3584/GeneralDBOp.asmx" />
+    </wsdl:port>
+    <wsdl:port name="GeneralDBOpSoap12" binding="tns:GeneralDBOpSoap12">
+      <soap12:address location="http://localhost:3584/GeneralDBOp.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
